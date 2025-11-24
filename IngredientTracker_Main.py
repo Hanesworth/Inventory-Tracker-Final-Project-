@@ -53,7 +53,7 @@ def entry_function(curse, connect):
         # Commit 'solidifies' the change(s) we define'
         connect.commit()
         print('Ingredient added!')
-        # Create a global 'check' variable to ask user for more entries
+        # Create a 'check' variable to ask user for more entries
         # If not some variation of 'yes', kill the while true loop
         repeat = input('Add another item to table? (Y/N): ').strip().upper()
         if repeat not in ('Y', "YES"):
@@ -71,4 +71,5 @@ input("Hit enter to exit:")
 cursor.close()
 con.close()
 print("\nDB Connection Closed")
+
 
