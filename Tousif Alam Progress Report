@@ -1,0 +1,30 @@
+# Status Report
+
+#### Your name
+
+Tousif Alam 
+
+#### Your section leader's name
+
+Tomoya Kanno
+
+#### Project title
+
+Inventory Tracker
+
+***
+
+Short answers for the below questions suffice. If you want to alter your plan for your project (and obtain approval for the same), be sure to email your section leader directly!
+
+#### What have you done for your project so far?
+
+So far we have some coding done and pdf tutorial as well as the next steps outlined. 
+
+#### What have you not done for your project yet?
+
+I have to meet up with my group members to figure out how should we split the work up evenly. 
+
+#### What problems, if any, have you encountered?
+
+In our code, it reads and stores the user input properly but it doesn't display the current entries before closing when user inputs "no" after their entries. 
+Also, in the code a function is automatically runs without being called. 
