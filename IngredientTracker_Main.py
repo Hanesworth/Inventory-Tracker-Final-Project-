@@ -64,12 +64,33 @@ def entry_function(curse, connect):
                 print(funcrow)
             break
 
+# To remove an ingredient
+def remove_function(curse, connect):
+    # selects what you want to delete as a placeholder
+    whatdelete = input('\nEnter the **Name** of ingredient to remove: ').strip()
+    # deletes the placeholder
+    actualdelete = "DELETE FROM Ingredient_Table Where Name = ?;"
+    curse.execute(actualdelete, (whatdelete,))
+    connect.commit()
+    # if placeholder exists in table, deletes it
+    if curse.rowcount > 0:
+        print(whatdelete + ' has been successfully removed.')
+    else:
+        print("Could not find an ingredient named '{whatdelete}'. No rows were removed.")
+
+    print('\nCurrent functions:')
+    curse.execute('SELECT * FROM Ingredient_Table')
+    for funcrow in curse.fetchall():
+        print(funcrow)
+
 entry_function(cursor, con)
+remove_function(curse, connect)
 
 # Close the cursor and connection to DB
 input("Hit enter to exit:")
 cursor.close()
 con.close()
 print("\nDB Connection Closed")
+
 
 
