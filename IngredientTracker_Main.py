@@ -83,14 +83,30 @@ def remove_function(curse, connect):
     for funcrow in curse.fetchall():
         print(funcrow)
 
-entry_function(cursor, con)
-remove_function(curse, connect)
+# prompts the user to check ingredient or recipe list
+ask1 = input("Do you want to see the ingredient list or recipe list?\n")
+if ask1 in ('Ingredient list', 'ingredient list', 'ingredient'):
+    ask2 = input("Change or Delete from the ingredient list?")
+    if ask2 in ('Change', 'change', 'C'):
+        entry_function(cursor,con)
+    elif ask2 in ('Delete', 'delete', 'D'): 
+        remove_function(cursor, con)
+# This handles any other input for ask1       
+else: 
+    input("Hit enter to exit:")
+    cursor.close()
+    con.close()
+    print("\nDB Connection Closed")
+
+#entry_function(cursor, con)
+#remove_function(curse, connect)
 
 # Close the cursor and connection to DB
 input("Hit enter to exit:")
 cursor.close()
 con.close()
 print("\nDB Connection Closed")
+
 
 
 
