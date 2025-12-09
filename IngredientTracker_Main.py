@@ -1,6 +1,6 @@
 import sqlite3
 
-## --- 1. DATABASE INITIALIZATION AND TABLE CREATION ---
+# DB init & table creation
 
 con = sqlite3.connect('TestDatabase.db')
 cursor = con.cursor()
@@ -10,6 +10,7 @@ cursor.execute('SELECT sqlite_version();')
 result = cursor.fetchall()
 print('The SQLite version is ' + str(result))
 
+# ingredient table creation
 ingredientQuery = """
     CREATE TABLE IF NOT EXISTS Ingredient_Table (
         Name STR UNIQUE PRIMARY KEY,
@@ -21,6 +22,8 @@ ingredientQuery = """
 cursor.execute(ingredientQuery)
 print('\n-The Ingredients Table has been created-')
 
+
+# recipe table creation
 recipeTableQuery = """
     CREATE TABLE IF NOT EXISTS Recipe_Table (
         RecipeID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -140,9 +143,9 @@ def addRecipeFunction(cursor, connect):
 
         ingredientMeasure = ingredientInfo[0]
         currentStock = ingredientInfo[1]
-
+    # Throw a warning if the user is out of said item
         if currentStock <= 0:
-            print("🚨 WARNING: You currently have " + str(currentStock) + " " +
+            print("WARNING: You currently have " + str(currentStock) + " " +
                   ingredientMeasure + " of " + ingName)
 
         try:
@@ -226,7 +229,7 @@ def deleteRecipeFunction(cursor, connect):
         print("ID: " + str(row[0]) + ", Name: " + row[1])
 
 
-## Main menu loop
+## 'Main menu' loop
 while True:
     print("\n=== MAIN MENU ===")
     print("I - Ingredient Menu")
@@ -271,7 +274,7 @@ while True:
     else:
         print("Invalid choice. Enter I, R, or X.")
 
-
+# Kill & Close block
 print("\n-Closing Program-")
 input("Press Enter to exit...")
 cursor.close()
