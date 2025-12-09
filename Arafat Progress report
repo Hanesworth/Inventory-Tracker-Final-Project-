@@ -11,10 +11,12 @@ Inventory Tracker
 Short answers for the below questions suffice. If you want to alter your plan for your project (and obtain approval for the same), be sure to email your section leader directly!
 
 What have you done for your project so far?
-Built remove function
+Helped with the removal and some of the recipe functions. The main menu, and helped with formatting the code where it's not crazily messy. Created some of the ideas on what we could do to improve(work on case-sensitive answers,
+helped make the start of the main menu because the functions were too cluttered. Made it so we had options to choose between add, view, and delete for both ingredients and recipes.) - This was thanks to brainstorming with my teammates.
 
 What have you not done for your project yet?
-We have not determined the formatting of nor created a table to store recipes.
+We have not determined the formatting of nor created a table to store recipes.(Now we have)
 
 What problems, if any, have you encountered?
-Script currently cannot run without making some kind of manipulation to the table.
+I realize late into this project that SQlite, while sharing a lot of similarities with Python, I just don't have a large understanding of it. I've had to rely on Ryan for a lot of help, which I'm thankful for. 
+I've gotten used to a lot of the coding. I found it easier with us just going on Discord due to communication problems and schedules not aligning. 
