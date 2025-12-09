@@ -71,15 +71,17 @@ def entryFunction(cursor, connect):
         except ValueError:
             print("Invalid input for Count or Cost. Please enter a number.")
             continue
-
+        # The action of storing user values 'exists as' variable (enter)
         insertQuery = """
             INSERT OR REPLACE INTO Ingredient_Table (Name, Measure, Count, Cost)
             VALUES (?, ?, ?, ?);
         """
+        # Execute actually 'performs' the change we define
         cursor.execute(insertQuery, (name, measure, count, cost))
+        # Commit 'solidifies' the change(s) we define'
         connect.commit()
         print(name + " added/updated!")
-
+        # Iterate through & print all existing rows
         while True:
             repeat = input('Add another item? (Y/N): ').strip().upper()
             if repeat in ('Y', 'YES'):
@@ -97,12 +99,13 @@ def entryFunction(cursor, connect):
 # Ingredient removal function
 def removeFunction(cursor, connect):
     print("\n-Remove Ingredient from Inventory-")
+    # selects what you want to delete as a placeholder
     whatDelete = input('Ingredient name to remove: ').strip()
-
+    # deletes the placeholder
     deleteQuery = "DELETE FROM Ingredient_Table WHERE Name = ?;"
     cursor.execute(deleteQuery, (whatDelete,))
     connect.commit()
-
+    # if placeholder exists in table, deletes it
     if cursor.rowcount > 0:
         print(whatDelete + " has been removed.")
     else:
@@ -175,16 +178,16 @@ def addRecipeFunction(cursor, connect):
                 print("Invalid choice. Enter Y or N.")
 
 
-# List recipe(s)
+# View List recipe(s)
 def showRecipes(cursor):
     print("\n-Current Recipes-")
     cursor.execute('SELECT * FROM Recipe_Table')
     recipes = cursor.fetchall()
-
+    #just to remind the user that they added no recipes
     if not recipes:
         print("No recipes found.")
         return
-
+    
     for recipe in recipes:
         recipeId, name, instructions = recipe
         print("\nID: " + str(recipeId) + " | Name: " + name)
@@ -280,3 +283,4 @@ input("Press Enter to exit...")
 cursor.close()
 con.close()
 print("DB Connection Closed")
+
